@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grand_slams/widgets/event_page.dart';
 
 class EventRow extends StatelessWidget {
   final Map<String, dynamic> eventData;
@@ -11,27 +12,9 @@ class EventRow extends StatelessWidget {
         print(eventData['name']);
         Navigator.push(context, MaterialPageRoute<void>(
               builder: (BuildContext context) {
-                return Scaffold(
-                  appBar: AppBar(
-                    iconTheme: IconThemeData(
-                      color: Colors.black87, //change your color here
-                    ),
-                    title: Text(
-                      eventData['name'], 
-                      style: TextStyle(
-                        color: Colors.black87,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    backgroundColor: Colors.white,
-                    brightness: Brightness.light,
-                    elevation: 0.0,
-                  ),
-                  body: Center(
-                  ),
-                );
+                return EventPage(eventData: this.eventData);
               },
-              )
+            )
           );
       },
       child: new Container(
