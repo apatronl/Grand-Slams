@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class EventPage extends StatelessWidget {
   final Map<String, dynamic> eventData;
@@ -23,9 +24,13 @@ class EventPage extends StatelessWidget {
         elevation: 0.0,
       ),
       body: Center(
-        child: Text(
-          eventData['summary'],
+        child: WebView(
+          initialUrl: eventData['website'],
+          javascriptMode: JavascriptMode.unrestricted,
         ),
+        // child: Text(
+        //   eventData['summary'],
+        // ),
       ),
     );
   }
